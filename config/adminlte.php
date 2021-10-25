@@ -88,7 +88,6 @@ return [
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +144,7 @@ return [
     |
     */
 
-    'sidebar_mini' => 'lg',
+    'sidebar_mini' => true,
     'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
@@ -225,26 +224,21 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'pesquisar',
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text' => 'Dashboard',
+            'url'  => 'admin/dashboard',
+            'icon' => 'fas fa-chart-pie',
+            'permission' => ['manage dashboard']
         ],
         [
             'text'        => 'pages',
@@ -253,10 +247,22 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        ['header' => 'ACESSO'],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+            'permission' => ['manage users'],
+        ],
+        [
+            'text' => 'Papéis',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-key',
+        ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  => 'admin/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -350,7 +356,7 @@ return [
     | Here we can modify the plugins used inside the admin panel.
     |
     | For detailed instructions you can look the plugins section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Plugins-Configuration
+    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
     */
 
@@ -429,39 +435,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | IFrame
-    |--------------------------------------------------------------------------
-    |
-    | Here we change the IFrame mode configuration. Note these changes will
-    | only apply to the view that extends and enable the IFrame mode.
-    |
-    | For detailed instructions you can look the iframe mode section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
-    |
-    */
-
-    'iframe' => [
-        'default_tab' => [
-            'url' => null,
-            'title' => null,
-        ],
-        'buttons' => [
-            'close' => true,
-            'close_all' => true,
-            'close_all_other' => true,
-            'scroll_left' => true,
-            'scroll_right' => true,
-            'fullscreen' => true,
-        ],
-        'options' => [
-            'loading_screen' => 1000,
-            'auto_show_new_tab' => true,
-            'use_navbar_items' => true,
-        ],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Livewire
     |--------------------------------------------------------------------------
     |
@@ -469,7 +442,6 @@ return [
     |
     | For detailed instructions you can look the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
     */
 
     'livewire' => false,
