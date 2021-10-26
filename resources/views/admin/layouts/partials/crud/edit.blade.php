@@ -32,10 +32,12 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-<link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
 @stop
 
 @section('js')
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    @stack('scripts')
 @stop
