@@ -247,6 +247,12 @@ return [
             'icon' => 'fas fa-users',
             'adm'  =>  true,
         ],
+        [
+            'text' => 'Pontos',
+            'url'  => 'admin/check_ins',
+            'icon' => 'fas fa-fingerprint',
+            'adm'  =>  true,
+        ],
         ['header' => 'CONTA'],
         [
             'text' => 'Perfil',

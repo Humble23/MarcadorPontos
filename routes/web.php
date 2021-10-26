@@ -18,6 +18,7 @@ Auth::routes();
 
 $resources = [
     'users' => App\Http\Controllers\Admin\UserController::class,
+    'check_ins' => App\Http\Controllers\Admin\CheckInController::class,
 ];
 
 Route::get('/', function () {

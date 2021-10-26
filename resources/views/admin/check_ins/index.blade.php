@@ -12,7 +12,7 @@
         Adicionar
     </a>
   </div>
-  @include('admin.users.table')
+  @include('admin.check_ins.table')
 @stop
 
 @section('footer')
