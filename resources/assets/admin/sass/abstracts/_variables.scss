@@ -1,0 +1,30 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+$font-family-montserrat-serif: 'Montserrat', sans-serif;
+$font-family-opensans-serif: 'Open Sans', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+//Layers
+$layer1: 1;
+$layer2: 10;
+$layer3: 20;
+
+// Colors
+$primary: #0A8BCC;
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;

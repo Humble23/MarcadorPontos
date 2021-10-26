@@ -29,7 +29,7 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
 @stop
 
 @section('js')

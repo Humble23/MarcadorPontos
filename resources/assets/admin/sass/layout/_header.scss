@@ -1,0 +1,35 @@
+.home-header {
+  background: relative;
+  background-image: url('../../img/green-background.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: 82px;
+
+  #custom-carrosel {
+    
+    .carousel-inner {
+
+      .carousel-item {
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        img {
+          object-fit: cover;
+          background-position: center;
+          height: 200px;
+          @media only screen and (min-width : 768px) {
+            height: calc(100vh - 82px);
+          }
+        }
+      }
+    }
+
+    .carousel-control-next-icon, 
+    .carousel-control-prev-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

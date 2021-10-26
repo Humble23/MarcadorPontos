@@ -1,0 +1,39 @@
+.custom-sidebar {
+  @media (min-width: 768px) {
+    width: 16rem !important;
+  }
+
+  @media (min-width: 768px) {
+    .nav-item .nav-link[data-toggle=collapse]::after {
+        width: 1rem;
+        text-align: center;
+        float: right;
+        vertical-align: 0;
+        border: 0;
+        font-weight: 900;
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+    }
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f100; 
+  }
+  
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #6AC37C;
+    border-radius: 15px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #fff; 
+  }
+}

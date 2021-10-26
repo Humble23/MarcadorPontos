@@ -11,7 +11,7 @@
     <x-text-input label="Senha" name="password" type="password"></x-text-input>
   </div>
 
-  <div class="col-span-6 sm:col-span-3">
+  {{-- <div class="col-span-6 sm:col-span-3">
     <x-select-input label="Acesso" name="role" :options="$roles"></x-select-input>
-  </div>
+  </div> --}}
 </div>
