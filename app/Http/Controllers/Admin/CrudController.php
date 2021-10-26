@@ -28,7 +28,8 @@ abstract class CrudController extends Controller
     public function index(Request $request)
     {
         return view("admin.{$this->table}.index")
-            ->with('instance', $this->instance);
+            ->with('instance', $this->instance)
+            ->with('result', $this->repository->all());
     }
 
     public function create()
@@ -69,8 +70,8 @@ abstract class CrudController extends Controller
         if ($resource) {
             $resource = $this->repository->update($resource, $this->inputUpdate());
 
-            return view("admin.{$this->table}.index")
-                ->with('instance', $this->instance);
+            return redirect()->route("web.admin.{$this->table}.index")
+                ->with('success', 'Registro atualizado com sucesso!');
         }
 
         abort(404);

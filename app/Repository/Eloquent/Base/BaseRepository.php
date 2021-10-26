@@ -160,10 +160,8 @@ class BaseRepository implements EloquentRepositoryInterface
         return $resource;
     }
 
-    /**
-     * @return Collection
-     */
-    public function all(): Collection
+
+    public function all()
     {
         return $this->model->all();
     }

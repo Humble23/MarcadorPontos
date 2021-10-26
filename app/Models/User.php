@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -44,5 +45,9 @@ class User extends Authenticatable
     public function isAdm()
     {
         return $this->role == 'administrador';
+    }
+    public function age()
+    {
+        return Carbon::parse($this->birthdate)->age;
     }
 }

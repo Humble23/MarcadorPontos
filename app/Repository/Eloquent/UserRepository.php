@@ -16,6 +16,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
      */
     protected $resourceType = User::class;
 
+    public function all()
+    {
+        return $this->model->paginate(10);
+    }
+
     private function formatAttributes($attributes)
     {
         $attributes['password'] = bcrypt($attributes['password']);
