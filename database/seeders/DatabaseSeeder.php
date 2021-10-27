@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Edilson Fernandes',
             'document' => '11872150403',
             'occupation' => 'CEO',
-            'role' => 'employee',
+            'role' => 'funcionario',
             'email' => 'edilsonfernandes312@gmail.com',
             'birthdate' => '1994-10-20',
             'zipcode' => '59255000',

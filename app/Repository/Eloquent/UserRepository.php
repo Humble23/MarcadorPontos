@@ -26,7 +26,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $attributes['password'] = bcrypt($attributes['password']);
         $attributes['document'] = preg_replace('/\.|\-/', '', $attributes['document']);
         $attributes['zipcode'] = preg_replace('/\-/', '', $attributes['zipcode']);
-        $attributes['role'] = strtolower($attributes['role']);
+        $attributes['role'] = slugfy($attributes['role']);
 
         return $attributes;
     }

@@ -14,9 +14,9 @@
           <option value="">Seleciona uma opção</option>
       @foreach ($options as $option)
           @if ($key && $text)
-            <option value="{{ $option[$key] }}">{{ $option[$text] }}</option>
+            <option value="{{ $option[$key] }}" {{ $value === $option[$key] ? 'selected' : '' }}>{{ $option[$text] }}</option>
           @else
-            <option value="{{ $option }}">{{ $option }}</option>
+            <option value="{{ $option }}" {{ $value === slugfy($option) ? 'selected' : '' }}>{{ $option }}</option>
           @endif
       @endforeach
   </select>

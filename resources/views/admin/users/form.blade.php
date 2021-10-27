@@ -22,7 +22,7 @@
     ];
   @endphp
   <div class="col-span-6 sm:col-span-3">
-    <x-select-input label="Nível de acesso" name="role" :options="$roles"></x-select-input>
+    <x-select-input label="Nível de acesso" name="role" :options="$roles" value="{{ $instance->role ?? null }}"></x-select-input>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
@@ -37,38 +37,69 @@
       <span class="text-lg">Endereço</span>
       <hr class="mt-3">
   </div>
+
+</div>
+<div class="grid grid-cols-6 gap-6" x-data="app()">
   <div class="col-span-6 sm:col-span-3">
-    <x-text-input label="CEP" id="zipcode" name="zipcode" type="text" value="{{ $instance->zipcode ?? null }}"></x-text-input>
+      <x-text-input label="CEP" id="zipcode" keyup="getAddress()" name="zipcode" type="text" x-model="zipcode"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <x-text-input label="Logradouro" name="address" type="text" value="{{ $instance->address ?? null }}"></x-text-input>
+      <x-text-input label="Logradouro" name="address" type="text" x-model="address"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <x-text-input label="Número" name="number" type="text" value="{{ $instance->number ?? null }}"></x-text-input>
+      <x-text-input label="Número" name="number" type="text" x-model="number"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <x-text-input label="Complemento" name="complement" type="text" value="{{ $instance->complement ?? null }}"></x-text-input>
+      <x-text-input label="Complemento" name="complement" type="text" x-model="complement"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-3">
-    <x-text-input label="Bairro" name="neighborhood" type="text" value="{{ $instance->neighborhood ?? null }}"></x-text-input>
+      <x-text-input label="Bairro" name="neighborhood" type="text" x-model="neighborhood"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-2">
-    <x-text-input label="Cidade" name="city" type="text" value="{{ $instance->city ?? null }}"></x-text-input>
+      <x-text-input label="Cidade" name="city" type="text" x-model="city"></x-text-input>
   </div>
 
   <div class="col-span-6 sm:col-span-1">
-    <x-text-input label="Estado" name="state" type="text" value="{{ $instance->state ?? null }}"></x-text-input>
+      <x-text-input label="Estado" name="state" type="text" x-model="state"></x-text-input>
   </div>
-
 </div>
 
 @push('scripts')
   <script>
+    function app() {
+        return {
+            zipcode: "{{ $instance->zipcode ?? null }}",
+            address: "{{ $instance->address ?? null }}",
+            neighborhood: "{{ $instance->neighborhood ?? null }}",
+            city: "{{ $instance->city ?? null }}",
+            state: "{{ $instance->state ?? null }}",
+            number: "{{ $instance->number ?? null }}",
+            complement: "{{ $instance->complement ?? null }}",
+            getAddress() {
+                let zipcode = this.zipcode.replace(/-/g, '');
+
+                if (zipcode.length == 8) {
+                    fetch(`https://viacep.com.br/ws/${this.zipcode}/json/`)
+                        .then(response => response.json())
+                        .then(response => {
+                            this.address = response.logradouro;
+                            this.neighborhood = response.bairro;
+                            this.city = response.localidade;
+                            this.state = response.uf;
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
+            }
+        }
+    }
+
     var cpf = document.getElementById('document');
     var maskOptions = {
       mask: '000.000.000-00'
