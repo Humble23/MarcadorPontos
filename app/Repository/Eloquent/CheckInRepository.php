@@ -18,6 +18,10 @@ class CheckInRepository extends BaseRepository implements CheckInRepositoryInter
 
     public function all()
     {
-        return $this->model->paginate(10);
+        return $this->model
+            ->join('users as u', 'u.id', '=', 'check_ins.user_id')
+            ->where('check_ins.user_id', user()->id)
+            ->orderBy('check_ins.created_at', 'desc')
+            ->paginate(10);
     }
 }

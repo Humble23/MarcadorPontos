@@ -234,12 +234,6 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text' => 'Dashboard',
-            'url'  => 'admin/dashboard',
-            'icon' => 'fas fa-chart-pie',
-            'adm'  =>  true
-        ],
         ['header' => 'GERENCIAR'],
         [
             'text' => 'Usuarios',

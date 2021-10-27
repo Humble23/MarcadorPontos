@@ -18,7 +18,10 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function all()
     {
-        return $this->model->paginate(10);
+        return $this->model
+            ->select('users.*', 'manager.name as manager_name')
+            ->leftJoin('users as manager', 'manager.id', 'users.manager_id')
+            ->paginate(10);
     }
 
     private function formatAttributes($attributes)
@@ -27,6 +30,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $attributes['document'] = preg_replace('/\.|\-/', '', $attributes['document']);
         $attributes['zipcode'] = preg_replace('/\-/', '', $attributes['zipcode']);
         $attributes['role'] = slugfy($attributes['role']);
+        $attributes['manager_id'] = user()->id;
 
         return $attributes;
     }

@@ -1,4 +1,4 @@
-<section class="p-6 mx-auto font-mono">
+<section class="p-6 px-0 mx-auto font-mono">
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
       <div class="w-full overflow-md-x-hidden">
         <table class="w-full">
@@ -28,7 +28,7 @@
                         </div>
                     </td>
                     <td class="px-4 py-3 font-semibold border text-ms">{{ $row->age() }}</td>
-                    <td class="px-4 py-3 font-semibold border text-ms">Nome do gestor</td>
+                    <td class="px-4 py-3 font-semibold border text-ms">{{ $row->manager_name ?? 'Sem gestor' }}</td>
                     {{-- <td class="px-4 py-3 text-xs border">
                         <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
                     </td> --}}

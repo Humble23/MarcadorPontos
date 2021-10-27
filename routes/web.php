@@ -35,6 +35,7 @@ Route::prefix('/admin')->group(function () use ($resources) {
         Route::get("/{$entity}/{id}", [$controller, 'show'])->name("web.admin.{$entity}.show");
     }
 
+    Route::post('/check_in', [App\Http\Controllers\Admin\CheckInController::class, 'checkIn'])->name('web.admin.check_ins.check_in');
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('web.admin.dashboard');
     Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('web.admin.profile');
 });
