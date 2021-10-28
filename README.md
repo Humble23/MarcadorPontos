@@ -41,7 +41,9 @@ As credenciais de acesso para esses usuários são:
 
 **Funcionário:**
 
-```**email:** edilsonfernandes312@gmail.com
-**senha:** edilson@dev</label>```
+```
+**email:** edilsonfernandes312@gmail.com
+**senha:** edilson@dev</label>
+```
 
 PS: Opcionalmente pode ser realizado a importação do dump (BANCODEDADOS.sql) que se encontra na raiz do projeto que possuí alguns dados previamente cadastrados
