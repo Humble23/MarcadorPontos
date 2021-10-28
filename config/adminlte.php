@@ -236,7 +236,7 @@ return [
         ],
         ['header' => 'GERENCIAR'],
         [
-            'text' => 'Usuarios',
+            'text' => 'Funcionários',
             'url'  => 'admin/users',
             'icon' => 'fas fa-users',
             'adm'  =>  true,

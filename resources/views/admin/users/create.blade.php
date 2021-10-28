@@ -1,9 +1,9 @@
 @extends('admin.layouts.partials.crud.create')
 
-@section('title', 'Cadastrar usuários')
+@section('title', 'Cadastrar funcionário')
 
 @section('content_header')
-  <h1>Cadastrar usuários</h1>
+  <h1>Cadastrar funcionário</h1>
 @stop
 
 @section('form')
