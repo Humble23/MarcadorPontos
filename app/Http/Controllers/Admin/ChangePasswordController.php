@@ -11,4 +11,15 @@ class ChangePasswordController extends Controller
     {
         return view('admin.change_password.show');
     }
+
+    public function update()
+    {
+        $this->validate(request(), [
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        user()->update(['password' => bcrypt(request('password'))]);
+
+        return back()->with('success', __('Senha alterada com sucesso'));
+    }
 }

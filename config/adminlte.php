@@ -245,17 +245,11 @@ return [
             'text' => 'Pontos',
             'url'  => 'admin/check_ins',
             'icon' => 'fas fa-fingerprint',
-            'adm'  =>  true,
         ],
         ['header' => 'CONTA'],
         [
-            'text' => 'Perfil',
-            'url'  => 'admin/profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/change-password',
             'icon' => 'fas fa-fw fa-lock',
         ],
     ],
