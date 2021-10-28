@@ -38,7 +38,7 @@ class CheckInRepository extends BaseRepository implements CheckInRepositoryInter
         $offset = $limit * ($page - 1);
         $whereDate = "where
             ci.check_in_date between '{$fromDate}' and '{$toDate}'";
-        $whereUser = $user->isAdm() ? '' : "and ci.user_id = {$user->id}";
+        $whereUser = $user->isAdm() ? "and (manager.id = {$user->id} or ci.user_id = {$user->id})" : "and ci.user_id = {$user->id}";
 
         return "
             select

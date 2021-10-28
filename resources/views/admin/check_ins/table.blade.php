@@ -1,6 +1,6 @@
 <section class="p-6 px-0 mx-auto font-mono">
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-      <div class="w-full overflow-md-x-hidden">
+      <div class="w-full overflow-x-auto md:overflow-x-hidden">
         <table class="w-full">
           <thead>
             <tr class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
@@ -34,7 +34,9 @@
                 </tr>
             @empty
                 <tr class="py-3 text-gray-700">
-                    <td lass="px-4 py-3 border" colspan="5" class="text-center">Nenhum registro encontrado</td>
+                    <td lass="px-4 py-3 border" colspan="5" class="text-center">
+                        <div class="my-3">Nenhum registro encontrado</div>
+                    </td>
                 </tr>
             @endforelse
           </tbody>

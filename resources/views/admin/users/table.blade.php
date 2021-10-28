@@ -1,6 +1,6 @@
 <section class="p-6 px-0 mx-auto font-mono">
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-      <div class="w-full overflow-md-x-hidden">
+      <div class="w-full overflow-x-auto md:overflow-x-hidden">
         <table class="w-full">
           <thead>
             <tr class="font-semibold tracking-wide text-left text-gray-900 uppercase bg-gray-100 border-b border-gray-600 text-md">
