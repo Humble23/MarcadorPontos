@@ -32,6 +32,7 @@ Route::prefix('/admin')->group(function () use ($resources) {
         Route::post("/{$entity}/adicionar", [$controller, 'store'])->name("web.admin.{$entity}.store");
         Route::get("/{$entity}/editar/{id}", [$controller, 'edit'])->name("web.admin.{$entity}.edit");
         Route::put("/{$entity}/atualizar/{id}", [$controller, 'update'])->name("web.admin.{$entity}.update");
+        Route::delete("/{$entity}/deletar/{id}", [$controller, 'delete'])->name("web.admin.{$entity}.delete");
         Route::get("/{$entity}/{id}", [$controller, 'show'])->name("web.admin.{$entity}.show");
     }
 

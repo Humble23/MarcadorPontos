@@ -12,7 +12,7 @@
             </tr>
           </thead>
           <tbody class="bg-white">
-            @foreach($result as $row)
+            @forelse($result as $row)
                 <tr class="text-gray-700">
                     <td class="px-4 py-3 border">
                         {{ $row->id }}
@@ -32,7 +32,11 @@
                     </td> --}}
                     <td class="px-4 py-3 text-sm border">{{ \Carbon\Carbon::create($row->check_in_date)->format('d/m/Y h:i:s') }}</td>
                 </tr>
-            @endforeach
+            @empty
+                <tr class="py-3 text-gray-700">
+                    <td lass="px-4 py-3 border" colspan="5" class="text-center">Nenhum registro encontrado</td>
+                </tr>
+            @endforelse
           </tbody>
         </table>
         @if ($result->lastPage() > 1)

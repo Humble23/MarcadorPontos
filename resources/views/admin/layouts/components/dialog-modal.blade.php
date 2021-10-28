@@ -1,8 +1,10 @@
 <div
-  class="fixed inset-0 top-0 left-0 flex items-center justify-center h-screen bg-center bg-no-repeat bg-cover outline-none opacity-70 min-w-screen animated fadeIn faster focus:outline-none" style="z-index: 5000;"
+  x-on:click="modal = false"
+  class="fixed inset-0 top-0 left-0 items-center justify-center hidden h-screen bg-center bg-no-repeat bg-cover outline-none min-w-screen animated fadeIn faster focus:outline-none" style="z-index: 5000;"
+  :class="{ 'hidden' : !modal, 'flex': modal }"
   id="modal-id">
   <div class="absolute inset-0 z-0" style="background: rgba(0, 0, 0, 0.4);"></div>
-  <div class="relative max-w-lg p-3 mx-auto my-auto bg-white shadow-lg" style="border-radius: 20px;">
+  <div class="relative max-w-lg p-3 mx-auto my-auto bg-white shadow-lg" style="border-radius: 20px;" @click.stop>
     <!--content-->
     <div class="">
       <!--body-->
@@ -19,18 +21,25 @@
             clip-rule="evenodd" />
         </svg>
         <h2 class="py-4 pb-0 text-lg font-bold ">Tem certeza?</h3>
-          <p class="px-8 text-sm text-gray-500">Você deseja mesmo apagar o registro?
-            Essa ação não pode ser desfeita</p>
+          <p class="px-8 text-sm text-gray-500">Você deseja mesmo apagar esse usuário?</p>
       </div>
 
       <!--footer-->
-      <div class="p-3 pt-0 space-x-4 text-center md:block">
+      <div class="p-3 pt-0 space-x-4 text-center md:block" >
         <button
+          x-on:click="modal = false"
           class="px-5 py-2 mb-2 text-sm font-medium tracking-wider text-gray-600 bg-white border rounded-full shadow-sm md:mb-0 hover:shadow-lg hover:bg-gray-100">
           Cancelar
         </button>
-        <button
-          class="px-5 py-2 mb-2 text-sm font-medium tracking-wider text-white bg-red-600 border border-red-600 rounded-full shadow-sm md:mb-0 hover:shadow-lg hover:bg-red-600">Deletar</button>
+        <div class="inline-block">
+            <form action="{{ route('web.admin.users.delete', $row->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button
+                   type="submit"
+                  class="px-5 py-2 mb-2 text-sm font-medium tracking-wider text-white bg-red-600 border border-red-600 rounded-full shadow-sm md:mb-0 hover:shadow-lg hover:bg-red-600">Deletar</button>
+            </form>
+        </div>
       </div>
     </div>
   </div>

@@ -31,12 +31,14 @@ class CheckInRepository extends BaseRepository implements CheckInRepositoryInter
 
     private function queryBuilder($params, $limit)
     {
-        $fromDate = $params['from_date'] ?? null;
-        $toDate = $params['to_date'] ?? null;
+        $user = user();
+        $fromDate = $params['from_date'] ?? now()->format('Y-m-d');
+        $toDate = $params['to_date'] ?? now()->addDay(1)->format('Y-m-d');
         $page = $params['page'] ?? 1;
         $offset = $limit * ($page - 1);
-        $whereDate = $fromDate || $toDate ? "where
-            ci.check_in_date between '{$fromDate}' and '{$toDate}'" : '';
+        $whereDate = "where
+            ci.check_in_date between '{$fromDate}' and '{$toDate}'";
+        $whereUser = $user->isAdm() ? '' : "and ci.user_id = {$user->id}";
 
         return "
             select
@@ -54,7 +56,7 @@ class CheckInRepository extends BaseRepository implements CheckInRepositoryInter
                 users as u on ci.user_id = u.id
             left join
                 users as manager on manager.id = u.manager_id
-            {$whereDate}
+            {$whereDate} {$whereUser}
             order by ci.check_in_date desc
             limit {$limit} offset {$offset};
         ";
