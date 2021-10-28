@@ -13,30 +13,35 @@ Para a resolução do desafio proposto, foram utilizadas as seguintes tecnologia
 
 Para a instalação das dependências do php rode
 
-<pre>$ composer install</pre>
+```$ composer install```
 
 Para a instalação das dependências do javascript rode
 
-<pre>$ npm install ou yarn install</pre>
+```$ npm install ou yarn install```
 
 ### Preparando o banco de dados
 
 Crie um banco mysql vazio e execute as migrations
 
-<pre>$ php artisan migrate</pre>
+```$ php artisan migrate```
 
 Logo após rode a seed para criação dos usuários base do painel
 
-<pre>$ php artisan db:seed</pre>
+```$ php artisan db:seed```
 
 Serão criado dois usuários, um administrador e um funcionário subordinado a ele:
 
-As credenciais de acesso para esses usuários são: **Administrador:**
+As credenciais de acesso para esses usuários são:
 
-<pre> <label>**email:** administrador@ticto.com</label> <label>**senha:** admin@vaga</label> </pre>
+**Administrador:**
+```
+**email:** administrador@ticto.com
+**senha:** admin@vaga
+```
 
 **Funcionário:**
 
-<pre> <label>**email:** edilsonfernandes312@gmail.com</label> <label>**senha:** edilson@dev</label> </pre>
+```**email:** edilsonfernandes312@gmail.com
+**senha:** edilson@dev</label>```
 
-<pre>PS: Opcionalmente pode ser realizado a importação do dump (BANCODEDADOS.sql) que se encontra na raiz do projeto que possuí alguns dados previamente cadastrados</pre>
+PS: Opcionalmente pode ser realizado a importação do dump (BANCODEDADOS.sql) que se encontra na raiz do projeto que possuí alguns dados previamente cadastrados
