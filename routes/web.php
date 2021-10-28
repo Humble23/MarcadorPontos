@@ -38,4 +38,5 @@ Route::prefix('/admin')->group(function () use ($resources) {
     Route::post('/check_in', [App\Http\Controllers\Admin\CheckInController::class, 'checkIn'])->name('web.admin.check_ins.check_in');
     Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('web.admin.dashboard');
     Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('web.admin.profile');
+    Route::get('/change-password', [App\Http\Controllers\Admin\ChangePasswordController::class, 'show'])->name('web.admin.change-password');
 });
