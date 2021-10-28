@@ -242,7 +242,7 @@ return [
             'adm'  =>  true,
         ],
         [
-            'text' => 'Pontos',
+            'text' => 'Registro de pontos',
             'url'  => 'admin/check_ins',
             'icon' => 'fas fa-fingerprint',
         ],
